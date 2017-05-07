@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react dome</title>
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+</head>
+
+<body>
+
+<div id="container"></div>
+
+
+<script type="text/babel">
+
+    /*
+     属性验证  propTypes
+     组件类的属性
+     用于验证组件实例的属性是否符合要求
+
+     */
+
+
+    //创建组件
+    var ShowTitle = React.createClass({
+        propTypes:{
+            //title数据类型必须是字符串
+            title:React.PropTypes.string.isRequired,
+        },
+        render:function(){
+            return <h1>{this.props.title}</h1>
+        }
+    })
+
+
+
+    //渲染
+    ReactDOM.render(
+
+            <ShowTitle title="我是字符串" />,
+
+            document.getElementById("container")
+    )
+
+
+
+</script>
+
+</body>
+</html>

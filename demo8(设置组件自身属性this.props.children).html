@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react dome</title>
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+</head>
+
+<body>
+
+<div id="container"></div>
+
+
+<script type="text/babel">
+
+    /*
+     this.props.children
+
+     childen是一个例外，不是跟组件的属性对应的。
+     表示组件的所有节点
+
+     HTML5中有一种标签：列表<ul><li>
+
+     需求：定义一个列表组件，列表项中显示的内容，以及列表项的数量都由外部决定
+
+     */
+
+
+    //创建组件
+    var ListComponet = React.createClass({
+        render:function(){
+            return (
+                <ul>
+                    {
+                            /*
+                                列表项数量及内容不确定，在创建模板时才能确定
+                                利用this.props.children从父组件获取需要展示的列表项内容
+
+                                获取到列表项内容后，需要遍历children，逐项进行设置
+                                使用react.children.map方法
+                                返回值：数组对象，这里数组中的元素是<li>
+                            */
+                            React.Children.map(this.props.children,function(child){
+                                //child是遍历得到的父组件中的子节点
+                                return <li>{child}</li>;
+                            })
+                    }
+                </ul>
+
+            )
+        }
+    })
+
+
+
+   //渲染
+   ReactDOM.render(
+           (
+              <ListComponet>
+                  <a>我是有一条新闻111。。。。</a>
+                  <a>我是有一条新闻2222222222。。。。</a>
+                  <a>我是有一条新闻333333。。。。。。</a>
+                  <a>我是有一条新闻4444444。。。。</a>
+                  <a>我是有一条新闻55555555。。。。</a>
+              </ListComponet>
+           ),
+       document.getElementById("container")
+   )
+
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

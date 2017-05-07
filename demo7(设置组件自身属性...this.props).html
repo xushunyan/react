@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react dome</title>
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+</head>
+
+<body>
+
+<div id="container"></div>
+
+
+<script type="text/babel">
+
+    /*
+     ...this.props
+     props提供的语法糖，可以将父组件中的全部属性都复制给子组件
+
+     需求：
+        定义一个组件Link，Link组件中只包含<a>,我们不给<a>设置任何属性，所以属性全部从父组件复制得到
+     */
+
+
+
+   //定义组件：Link
+   var Link = React.createClass({
+       render:function () {
+           return <a { ...this.props}>{this.props.name}</a>
+       }
+   });
+
+
+
+   //渲染
+   ReactDOM.render(
+       <Link href="http://www.baidu.com" name="百度一下"/>,
+       document.getElementById("container")
+   )
+
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

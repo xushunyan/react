@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react dome</title>
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+</head>
+
+<body>
+
+<div id="container"></div>
+
+<script type="text/babel">
+
+
+   /*
+    需求：定义一个复合组件
+    复合组件：也称为组合组件，创建多个组件合成一个组件
+    注意：命名必须以大写字母开头，驼峰命名法
+
+    定义一个组件WebShow，功能：输出网站的名字和网址，网址是一个可以点击的链接
+    分析：
+        定义一个组件WebName负责输出网站名字，
+        定义组件WebLink显示网站的网址，
+        并且可以点击
+
+   */
+
+    //定义组件：webName
+    var WebName = React.createClass({
+        render:function () {
+            return <h1>百度一下</h1>
+        }
+    });
+
+
+
+   //定义组件：webLink
+   var WebLink = React.createClass({
+       render:function(){
+           return <a href="http://www.baidu.com">http://www.baidu.com</a>
+       }
+   });
+
+   //定义复合组件：webShow
+   var WebShow = React.createClass({
+       render:function(){
+           return (
+                   <div>
+                       <WebName/>
+                       <WebLink/>
+                   </div>
+           )
+       }
+   });
+
+   ReactDOM.render(
+           <WebShow/>,
+           document.getElementById("container")
+   )
+
+
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

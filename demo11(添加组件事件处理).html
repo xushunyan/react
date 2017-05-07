@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react dome</title>
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+</head>
+
+<body>
+
+<div id="container"></div>
+
+
+<script type="text/babel">
+
+    /*
+     事件处理
+     注意：react中的事件名称，首字母小写，驼峰命名法
+     需求：定义一个组件，组件包含一个button，给button绑定一个onclick事件
+
+     */
+
+
+    //创建组件
+    var MyButton = React.createClass({
+        handleClick:function () {
+            alert("点击按钮出发的效果")
+        },
+        render:function(){
+            return <button onClick={this.handleClick}>{this.props.title}</button>
+        }
+    })
+
+
+
+    //渲染
+    ReactDOM.render(
+        <MyButton title="按钮"/>,
+        document.getElementById("container")
+    )
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react dome</title>
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+</head>
+
+<body>
+
+<div id="container"></div>
+
+
+<script type="text/babel">
+
+    /*
+     设置组件属性的默认值，通过组件的getDefaultProps方法
+
+     */
+
+
+    //创建组件
+    var ShowTitle = React.createClass({
+        getDefaultProps:function () {
+            return {
+                title:"将前端坚持到底！"
+            }
+        },
+        render:function(){
+            return <h1>{this.props.title}</h1>
+        }
+    })
+
+
+
+    //渲染
+    ReactDOM.render(
+            <ShowTitle/>,   //在未设置title属性时，显示默认值，设置后覆盖默认值
+            document.getElementById("container")
+    )
+
+
+
+</script>
+
+</body>
+</html>

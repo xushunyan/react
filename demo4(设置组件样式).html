@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react dome</title>
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+    <style>
+        .style{font-size:12px;}
+        .ping{color:deeppink;}
+    </style>
+</head>
+
+<body>
+
+<div id="container"></div>
+
+
+<script type="text/babel">
+
+
+
+   /*
+    需求：定义一个组件，同时使用3中设置组件样式的方式
+
+    <div>   内联样式：设置背景颜色，边框大小，边框颜色
+        <h1></h1>   对象样式：设置背景颜色，字体颜色
+        <p></p>   选择器样式：设置字体大小
+    </div>
+
+
+   */
+
+   /*
+    设置组件的样式：
+    1.内联样式
+    2.对象样式
+    3.选择器样式
+    注意：在react和html5中设置样式时的书写格式是有区别的
+
+        1.html5以；结尾
+          react以，结尾
+        2.html5中key，value都不加引号
+          react中属于javascript对象，key的名字不能出现"-"，需要使用驼峰命名法，如value为字符串，需要加引号
+        3.html5中，value如果是数字，需要带单位
+          react不需要带单位
+        4.html5中，样式类为class
+          react中，样式类为className(类似的，使用htmlFor替换for)
+
+
+    */
+
+   var hStyle={
+       backgroundColor:"blue",
+       color:"gray",
+       fontSize:"20px"
+   }
+
+
+    var ShowMessage = React.createClass({
+        render:function () {
+            return (
+                    <div style={{backgroundColor:"yellow",borderStyle:"solid",borderWidth:5,borderColor:"black"}}>
+                        <h1 style={hStyle}>{this.props.fistRow}</h1>
+                        <p className="style ping">{this.props.SecondRow}</p>
+                    </div>
+            )
+        }
+    });
+
+
+   ReactDOM.render(
+           <ShowMessage fistRow="标题" SecondRow="文本内容文本内容" />,
+           document.getElementById("container")
+   )
+
+
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

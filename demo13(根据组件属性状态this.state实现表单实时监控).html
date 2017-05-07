@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>react dome</title>
+    <script src="./build/react.js"></script>
+    <script src="./build/react-dom.js"></script>
+    <script src="./build/browser.min.js"></script>
+</head>
+
+<body>
+
+<div id="container"></div>
+
+
+<script type="text/babel">
+
+    /*
+
+     表单监控，this.state实战练习
+
+     需求：定义一个组件，将用户在输入框内输入的内容进行实时显示
+     分析：组件与用户交换时，存在状态的变化，即输入框的值
+
+     */
+
+
+    //创建组件
+
+    var Input = React.createClass({
+
+        getInitialState:function () {
+            return {
+                value:"请输入内容"
+            }
+        },
+        handleChange:function (event) {
+            //通过event.target.value读取用户输入的值
+            this.setState({
+                value:event.target.value
+            })
+        },
+        render:function () {
+            var value = this.state.value;
+            return (
+                    <div>
+                        <input type="text" value={value} onChange={this.handleChange} />
+                        <p>{value}</p>
+                    </div>
+            )
+
+        }
+
+    })
+
+
+
+    //渲染
+    ReactDOM.render(
+            <Input/>,
+            document.getElementById("container")
+    )
+
+
+
+</script>
+
+</body>
+</html>
